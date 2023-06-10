@@ -21,6 +21,9 @@
 ### 备注：免费mysql数据库申请请参考https://dusays.com/590/
 ## 4.去vercel项目中的settings/domains绑定域名，然后去https://your_domain.com/install.php 根据提示安装typecho
 ## 5.完成
+### 注意：
+1.使用这种方式，用于短期体验折腾没有问题，长期的话建议还是用服务器托管。
+2.该种方式源码端(vercel)的变更「例如上传文件」无法同步至 GitHub 仓库，这就会造成数据的丢失。
 <br><br><br><br><br><br>
 
 
