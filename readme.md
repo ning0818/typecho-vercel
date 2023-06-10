@@ -16,7 +16,7 @@
 ```
 ### 备注：免费mysql数据库申请请参考https://dusays.com/590/
 
-## 更改记录：
+## Typecho源码更改：
 1.添加config.inc.php
 ```
 <?php
