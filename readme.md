@@ -15,3 +15,71 @@
   'database' => '{mysql面板名}',
 ```
 ### 备注：免费mysql数据库申请请参考https://dusays.com/590/
+
+## 更改记录：
+1.添加config.inc.php
+```
+<?php
+define('__TYPECHO_SECURE__',true);
+define('__TYPECHO_ROOT_DIR__', dirname(__FILE__));
+define('__TYPECHO_PLUGIN_DIR__', '/usr/plugins');
+define('__TYPECHO_THEME_DIR__', '/usr/themes');
+define('__TYPECHO_ADMIN_DIR__', '/admin/');
+@set_include_path(get_include_path() . PATH_SEPARATOR .
+__TYPECHO_ROOT_DIR__ . '/var' . PATH_SEPARATOR .
+__TYPECHO_ROOT_DIR__ . __TYPECHO_PLUGIN_DIR__);
+require_once 'Typecho/Common.php';
+Typecho_Common::init();
+$db = new Typecho_Db('Pdo_Mysql', 'typecho_');
+$db->addServer(array (
+  'host' => '{mysql地址}',
+  'port' => 3306,
+  'user' => '{mysql用户名}',
+  'password' => '{mysql密码}',
+  'charset' => 'utf8mb4',
+  'database' => '{mysql面板名}',
+  'engine' => 'MyISAM',
+), Typecho_Db::READ | Typecho_Db::WRITE);
+Typecho_Db::set($db);
+```
+2.添加vercel.json
+```
+{
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.6.0"
+    }
+  },
+  "routes": [{ "src": "/(.*)", "dest": "/api/index.php" }]
+}
+```
+3.添加api/index.php
+```
+<?php
+$file= __DIR__ . '/..'.$_SERVER["PHP_SELF"];
+if(file_exists($file))
+{
+  return false;
+}
+else
+{
+  require_once __DIR__ . '/../index.php';
+}
+```
+4.更新install.php
+Delete:
+```
+    if (!$writeable) {
+        $errors[] = _t('上传目录无法写入, 请手动将安装目录下的 %s 目录的权限设置为可写然后继续升级', $uploadDir);
+    }
+
+```
+Add:
+```
+#    if (!$writeable) {
+#        $errors[] = _t('上传目录无法写入, 请手动将安装目录下的 %s 目录的权限设置为可写然后继续升级', $uploadDir);
+#    }
+```
+
+
+
