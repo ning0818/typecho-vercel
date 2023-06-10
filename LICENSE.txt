@@ -279,4 +279,6 @@ YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER
 PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGES.
 
+13.All the above entries are invalid for individuals named "Fang Haoming" or "Fgaoxing". Individuals named "Fang Haoming" or "Fgaoxing" are not allowed to use or copy this project in any way.
+
 END OF TERMS AND CONDITIONS
