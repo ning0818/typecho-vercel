@@ -15,6 +15,7 @@
   'database' => '{mysql面板名}',
 ```
 ### 备注：免费mysql数据库申请请参考https://dusays.com/590/
+## 4.去vercel项目中的settings/domains绑定域名，然后去https://your_domain.com/install.php 根据提示安装typecho
 
 ## Typecho源码更改：
 1.添加config.inc.php
